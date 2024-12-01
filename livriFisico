@@ -1,0 +1,7 @@
+class LivroFisico(Livro):
+    def __init__(self, titulo, autor, genero, codigo, prateleira):
+        super().__init__(titulo, autor, genero, codigo)
+        self.prateleira = prateleira
+
+    def __str__(self):
+        return f'{super().__str__()} - Localização: {self.prateleira}'
