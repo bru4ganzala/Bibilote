@@ -1,0 +1,7 @@
+class LivroDigital(Livro):
+    def __init__(self, titulo, autor, genero, codigo, link_download):
+        super().__init__(titulo, autor, genero, codigo)
+        self.link_download = link_download
+
+    def __str__(self):
+        return f'{super().__str__()} - Link para download: {self.link_download}'
