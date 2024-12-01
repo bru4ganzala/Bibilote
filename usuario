@@ -1,0 +1,21 @@
+class Usuario:
+    def __init__(self, nome, id_usuario):
+        self.nome = nome
+        self.id_usuario = id_usuario
+        self.historico_emprestimos = []
+
+    def emprestar(self, livro):
+        if livro.emprestar():
+            self.historico_emprestimos.append(livro)
+            return f'Empréstimo de "{livro.titulo}" realizado.'
+        return f'O livro "{livro.titulo}" não está disponível.'
+
+    def devolver(self, livro):
+        if livro in self.historico_emprestimos:
+            livro.devolver()
+            self.historico_emprestimos.remove(livro)
+            return f'Livro "{livro.titulo}" devolvido.'
+        return f'O livro "{livro.titulo}" não foi emprestado por você.'
+
+    def __str__(self):
+        return f'Usuário: {self.nome}, ID: {self.id_usuario}'
